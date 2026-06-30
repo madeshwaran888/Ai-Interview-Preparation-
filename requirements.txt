@@ -1,0 +1,19 @@
+# JARVIS v2 — Python Dependencies
+# Install: pip install -r requirements.txt
+
+# UI — FIX: bumped to 1.41.0+ for st.audio_input support
+streamlit>=1.41.0
+
+# Sarvam API
+requests>=2.31.0
+python-dotenv>=1.0.0
+
+# RAG stack
+sentence-transformers>=3.0.0
+chromadb>=0.5.0
+PyMuPDF>=1.24.0
+langchain>=0.2.0
+langchain-community>=0.2.0
+langchain-text-splitters>=0.2.0
+transformers>=4.40.0
+torch>=2.0.0

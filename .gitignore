@@ -1,0 +1,11 @@
+.env
+*.env
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+chroma_db/
+.streamlit/secrets.toml
+*.wav
+*.mp3

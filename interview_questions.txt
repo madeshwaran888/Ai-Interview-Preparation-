@@ -1,0 +1,72 @@
+PYTHON INTERVIEW QUESTIONS & ANSWERS
+=====================================
+
+Q: What is the difference between a list and a tuple in Python?
+A: Lists are mutable (can be changed after creation) while tuples are immutable (cannot be changed). Lists use square brackets [] and tuples use parentheses (). Tuples are faster and use less memory. Use tuples for fixed collections like coordinates; use lists when the collection needs to change.
+
+Q: What is a Python generator?
+A: A generator is a function that uses the yield keyword to return values one at a time, pausing execution between each call. Generators are memory-efficient because they produce items lazily — only when requested — rather than building the entire sequence in memory at once.
+Example:
+def count_up(n):
+    for i in range(n):
+        yield i
+for val in count_up(1000000):
+    print(val)  # Only one value in memory at a time
+
+Q: Explain Python decorators.
+A: A decorator is a function that wraps another function to extend its behaviour without modifying its source code. Decorators use the @syntax and are commonly used for logging, authentication, caching, and timing.
+Example:
+def timer(func):
+    import time
+    def wrapper(*args, **kwargs):
+        start = time.time()
+        result = func(*args, **kwargs)
+        print(f"{func.__name__} took {time.time() - start:.2f}s")
+        return result
+    return wrapper
+
+@timer
+def slow_function():
+    time.sleep(1)
+
+Q: What is the GIL in Python?
+A: The Global Interpreter Lock (GIL) is a mutex that allows only one thread to execute Python bytecode at a time, even on multi-core machines. It simplifies memory management but limits CPU-bound multi-threading. For CPU-bound tasks use multiprocessing; for I/O-bound tasks threading still helps since threads release the GIL while waiting for I/O.
+
+Q: What are *args and **kwargs?
+A: *args allows a function to accept any number of positional arguments as a tuple. **kwargs allows any number of keyword arguments as a dictionary. They let you write flexible functions that accept variable inputs.
+
+MACHINE LEARNING INTERVIEW QUESTIONS & ANSWERS
+===============================================
+
+Q: What is the bias-variance tradeoff?
+A: Bias is the error from wrong assumptions in the learning algorithm (underfitting). Variance is the error from sensitivity to small fluctuations in training data (overfitting). Increasing model complexity reduces bias but increases variance. The goal is to find the sweet spot that minimises total error on unseen data.
+
+Q: What is the difference between bagging and boosting?
+A: Bagging (Bootstrap Aggregating) trains multiple models independently on random subsets of data and averages their predictions. It reduces variance. Example: Random Forest. Boosting trains models sequentially, each correcting the errors of the previous one. It reduces bias. Example: XGBoost, AdaBoost. Bagging is less prone to overfitting; boosting often achieves higher accuracy but can overfit noisy data.
+
+Q: What is gradient descent?
+A: Gradient descent is an optimisation algorithm that minimises a loss function by iteratively moving in the direction of steepest descent (negative gradient). In each step, parameters are updated as: θ = θ - α * ∇L(θ), where α is the learning rate. Variants include Batch GD (uses all data), Stochastic GD (one sample at a time), and Mini-batch GD (small batches).
+
+Q: Explain precision, recall, and F1-score.
+A: Precision = TP / (TP + FP) — of all predicted positives, how many were correct. Recall = TP / (TP + FN) — of all actual positives, how many did we find. F1-score = 2 * (Precision * Recall) / (Precision + Recall) — harmonic mean, balances both. Use precision when false positives are costly (spam filter). Use recall when false negatives are costly (disease detection).
+
+Q: What is cross-validation?
+A: Cross-validation is a technique to evaluate model performance on unseen data. K-fold CV splits data into K equal parts, trains on K-1 folds, tests on the remaining fold, and repeats K times. The final score is the average across all folds. It gives a reliable estimate of generalisation performance and helps detect overfitting.
+
+SYSTEM DESIGN INTERVIEW QUESTIONS
+==================================
+
+Q: How would you design a URL shortener like bit.ly?
+A: Key components: (1) API service to accept long URLs and return short codes; (2) Hash function or random ID generator for short codes (6-8 alphanumeric chars); (3) Database to store long URL → short code mapping; (4) Redirect service (301/302) for expanding short URLs; (5) Cache (Redis) for frequently accessed URLs; (6) CDN for global low-latency redirects. Scale: use consistent hashing for distributed storage, separate read/write paths.
+
+Q: What is the difference between SQL and NoSQL databases?
+A: SQL databases are relational, use structured schemas, support ACID transactions, and are best for complex queries and data with clear relationships (e.g. PostgreSQL, MySQL). NoSQL databases are non-relational, schema-flexible, optimised for specific access patterns, and scale horizontally more easily. Types include document (MongoDB), key-value (Redis), column-family (Cassandra), and graph (Neo4j). Choose SQL for consistency and complex joins; NoSQL for scale, flexibility, or specific data models.
+
+BEHAVIOURAL INTERVIEW QUESTIONS
+================================
+
+Q: Tell me about a time you disagreed with your team and how you handled it.
+A: Use the STAR method — Situation, Task, Action, Result. Describe the specific disagreement, your role, the steps you took to resolve it (listening to other perspectives, presenting data, finding a compromise), and the positive outcome. Show you can disagree constructively and prioritise team success over being right.
+
+Q: Describe a project where you had to learn something new quickly.
+A: Use the STAR method. Highlight: what you needed to learn, how you approached learning it (documentation, tutorials, asking experts), how quickly you became productive, and the outcome. Interviewers are assessing your learning agility and self-direction.
