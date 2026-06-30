@@ -5,19 +5,6 @@ Runs locally with **Streamlit** in VS Code.
 
 ---
 
-## 🆕 What's New in v2 vs v1
-
-| Feature | v1 | v2 |
-|---|---|---|
-| Chat LLM | HuggingFace Llama-3-8B | ✅ **Sarvam-30B** (Indian AI, faster, free) |
-| Speech-to-Text | ❌ Not available | ✅ **Saaras v3** (23 languages, auto-detect) |
-| Text-to-Speech | ❌ Not available | ✅ **Bulbul v3** (10 Indian langs + English) |
-| API Keys needed | `HF_TOKEN` | ✅ ONE key: `SARVAM_API_KEY` |
-| Voice Chat tab | ❌ | ✅ **Record → Transcribe → Answer → Read aloud** |
-| Read Aloud buttons | ❌ | ✅ On every LLM answer (tabs 1, 2, 3) |
-
----
-
 ## 🏗️ Architecture
 
 ```
