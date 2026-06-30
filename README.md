@@ -1,4 +1,4 @@
-# 🎯 JARVIS v2 — AI Interview Prep with Voice
+# 🎯 JARVIS — AI Interview Prep with Voice
 
 RAG-powered interview preparation chatbot built on **Sarvam AI** — India's sovereign AI platform.  
 Runs locally with **Streamlit** in VS Code.
